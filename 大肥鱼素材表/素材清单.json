@@ -1,0 +1,1535 @@
+{
+  "animations": [],
+  "asset_root": "G:/Python_Code/DeepSeekFishPet/大肥鱼素材表",
+  "characters": [
+    {
+      "category": "其他",
+      "face_of": [],
+      "file": "鲸宝形象/类别/01_base_idle.png",
+      "frames": 49,
+      "gif": "鲸宝形象/类别/01_base_idle.gif",
+      "id": "base_idle",
+      "label": "正面待机",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "其他",
+      "face_of": [],
+      "file": "鲸宝形象/类别/73_base_back.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/73_base_back.gif",
+      "id": "base_back",
+      "label": "背面视角",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "其他",
+      "face_of": [],
+      "file": "鲸宝形象/类别/74_base_left.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/74_base_left.gif",
+      "id": "base_left",
+      "label": "侧面视角",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    }
+  ],
+  "counts": {
+    "animations": 0,
+    "characters": 3,
+    "expressions": 0,
+    "faces": 78,
+    "voices": 0
+  },
+  "expressions": [],
+  "faces": [
+    {
+      "category": "其他",
+      "face_of": [],
+      "file": "鲸宝形象/类别/01_base_idle.png",
+      "frames": 49,
+      "gif": "鲸宝形象/类别/01_base_idle.gif",
+      "id": "base_idle",
+      "label": "正面待机",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "greet"
+      ],
+      "file": "鲸宝形象/类别/02_greet_wave.png",
+      "frames": 49,
+      "gif": "鲸宝形象/类别/02_greet_wave.gif",
+      "id": "greet_wave",
+      "label": "挥手问好",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "其他",
+      "face_of": [
+        "morning"
+      ],
+      "file": "鲸宝形象/类别/03_morning_yawn.png",
+      "frames": 49,
+      "gif": "鲸宝形象/类别/03_morning_yawn.gif",
+      "id": "morning_yawn",
+      "label": "早起打哈欠",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "吃喝",
+      "face_of": [
+        "noon",
+        "hungry"
+      ],
+      "file": "鲸宝形象/类别/04_noon_hungry_belly.png",
+      "frames": 49,
+      "gif": "鲸宝形象/类别/04_noon_hungry_belly.gif",
+      "id": "noon_hungry_belly",
+      "label": "中午摸肚子",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "吃喝",
+      "face_of": [
+        "afternoon"
+      ],
+      "file": "鲸宝形象/类别/05_afternoon_tea.png",
+      "frames": 49,
+      "gif": "鲸宝形象/类别/05_afternoon_tea.gif",
+      "id": "afternoon_tea",
+      "label": "午后捧茶",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "其他",
+      "face_of": [
+        "evening"
+      ],
+      "file": "鲸宝形象/类别/06_evening_relax.png",
+      "frames": 49,
+      "gif": "鲸宝形象/类别/06_evening_relax.gif",
+      "id": "evening_relax",
+      "label": "傍晚托腮",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "休息",
+      "face_of": [
+        "night"
+      ],
+      "file": "鲸宝形象/类别/07_night_whisper.png",
+      "frames": 49,
+      "gif": "鲸宝形象/类别/07_night_whisper.gif",
+      "id": "night_whisper",
+      "label": "夜里悄悄话",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "碎碎念",
+      "face_of": [
+        "idle"
+      ],
+      "file": "鲸宝形象/类别/08_idle_bubble.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/08_idle_bubble.gif",
+      "id": "idle_bubble",
+      "label": "发呆吐泡泡",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "吃喝",
+      "face_of": [
+        "hungry"
+      ],
+      "file": "鲸宝形象/类别/09_hungry_beg.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/09_hungry_beg.gif",
+      "id": "hungry_beg",
+      "label": "饿得捂肚子",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "休息",
+      "face_of": [
+        "tired"
+      ],
+      "file": "鲸宝形象/类别/10_tired_prone.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/10_tired_prone.gif",
+      "id": "tired_prone",
+      "label": "累趴桌",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "sad"
+      ],
+      "file": "鲸宝形象/类别/11_sad_tear.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/11_sad_tear.gif",
+      "id": "sad_tear",
+      "label": "含着眼泪",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "happy"
+      ],
+      "file": "鲸宝形象/类别/12_happy_jump.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/12_happy_jump.gif",
+      "id": "happy_jump",
+      "label": "高兴蹦跳",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "love"
+      ],
+      "file": "鲸宝形象/类别/13_love_heart.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/13_love_heart.gif",
+      "id": "love_heart",
+      "label": "胸前比心",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "碎碎念",
+      "face_of": [
+        "lonely"
+      ],
+      "file": "鲸宝形象/类别/14_lonely_miss.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/14_lonely_miss.gif",
+      "id": "lonely_miss",
+      "label": "想你张望",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "碎碎念",
+      "face_of": [
+        "bored"
+      ],
+      "file": "鲸宝形象/类别/15_bored_table.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/15_bored_table.gif",
+      "id": "bored_table",
+      "label": "无聊趴桌",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "玩耍",
+      "face_of": [
+        "excited"
+      ],
+      "file": "鲸宝形象/类别/16_excited_burst.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/16_excited_burst.gif",
+      "id": "excited_burst",
+      "label": "兴奋出水",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "pet"
+      ],
+      "file": "鲸宝形象/类别/17_pet_pat.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/17_pet_pat.gif",
+      "id": "pet_pat",
+      "label": "被摸头",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "pet_stop"
+      ],
+      "file": "鲸宝形象/类别/18_pet_stop.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/18_pet_stop.gif",
+      "id": "pet_stop",
+      "label": "举手喊停",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "吃喝",
+      "face_of": [
+        "feed"
+      ],
+      "file": "鲸宝形象/类别/19_feed_fish.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/19_feed_fish.gif",
+      "id": "feed_fish",
+      "label": "接小鱼干",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "吃喝",
+      "face_of": [
+        "feed_full"
+      ],
+      "file": "鲸宝形象/类别/20_feed_full.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/20_feed_full.gif",
+      "id": "feed_full",
+      "label": "吃饱拍肚子",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "吃喝",
+      "face_of": [
+        "drink"
+      ],
+      "file": "鲸宝形象/类别/21_drink_cup.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/21_drink_cup.gif",
+      "id": "drink_cup",
+      "label": "抱杯喝水",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "玩耍",
+      "face_of": [
+        "play"
+      ],
+      "file": "鲸宝形象/类别/22_play_cheer.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/22_play_cheer.gif",
+      "id": "play_cheer",
+      "label": "加油打气",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "玩耍",
+      "face_of": [
+        "play_win"
+      ],
+      "file": "鲸宝形象/类别/23_play_win.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/23_play_win.gif",
+      "id": "play_win",
+      "label": "赢了得意",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "玩耍",
+      "face_of": [
+        "play_lose"
+      ],
+      "file": "鲸宝形象/类别/24_play_lose.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/24_play_lose.gif",
+      "id": "play_lose",
+      "label": "输了耍赖",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "休息",
+      "face_of": [
+        "sleepy"
+      ],
+      "file": "鲸宝形象/类别/25_sleepy_yawn.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/25_sleepy_yawn.gif",
+      "id": "sleepy_yawn",
+      "label": "打小哈欠",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "休息",
+      "face_of": [
+        "sleep_ok"
+      ],
+      "file": "鲸宝形象/类别/26_sleep_curl.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/26_sleep_curl.gif",
+      "id": "sleep_curl",
+      "label": "蜷成一团",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "休息",
+      "face_of": [
+        "sleep_refuse"
+      ],
+      "file": "鲸宝形象/类别/27_sleep_refuse.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/27_sleep_refuse.gif",
+      "id": "sleep_refuse",
+      "label": "摇头装清醒",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "休息",
+      "face_of": [
+        "wake"
+      ],
+      "file": "鲸宝形象/类别/28_wake_stretch.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/28_wake_stretch.gif",
+      "id": "wake_stretch",
+      "label": "揉眼伸懒腰",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "休息",
+      "face_of": [
+        "wake_refuse"
+      ],
+      "file": "鲸宝形象/类别/29_wake_refuse_bed.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/29_wake_refuse_bed.gif",
+      "id": "wake_refuse_bed",
+      "label": "赖床",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "工作",
+      "face_of": [
+        "level_up"
+      ],
+      "file": "鲸宝形象/类别/30_level_up.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/30_level_up.gif",
+      "id": "level_up",
+      "label": "升级撒花",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "工作",
+      "face_of": [
+        "level_max"
+      ],
+      "file": "鲸宝形象/类别/31_level_max_crown.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/31_level_max_crown.gif",
+      "id": "level_max_crown",
+      "label": "满级戴王冠",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "工作",
+      "face_of": [
+        "error"
+      ],
+      "file": "鲸宝形象/类别/32_error_panic.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/32_error_panic.gif",
+      "id": "error_panic",
+      "label": "出错冒汗",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "offline"
+      ],
+      "file": "鲸宝形象/类别/33_offline_calm.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/33_offline_calm.gif",
+      "id": "offline_calm",
+      "label": "断网挥手",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "startup"
+      ],
+      "file": "鲸宝形象/类别/34_startup_salute.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/34_startup_salute.gif",
+      "id": "startup_salute",
+      "label": "上线敬礼",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "shutdown"
+      ],
+      "file": "鲸宝形象/类别/35_shutdown_bye.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/35_shutdown_bye.gif",
+      "id": "shutdown_bye",
+      "label": "月下晚安",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "hide"
+      ],
+      "file": "鲸宝形象/类别/36_hide_peek.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/36_hide_peek.gif",
+      "id": "hide_peek",
+      "label": "缩球偷瞄",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "show"
+      ],
+      "file": "鲸宝形象/类别/37_show_ta_da.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/37_show_ta_da.gif",
+      "id": "show_ta_da",
+      "label": "登场亮相",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "shy"
+      ],
+      "file": "鲸宝形象/类别/38_shy_cower.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/38_shy_cower.gif",
+      "id": "shy_cower",
+      "label": "害羞捂脸",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "proud"
+      ],
+      "file": "鲸宝形象/类别/39_proud_huh.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/39_proud_huh.gif",
+      "id": "proud_huh",
+      "label": "抱胸得意",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "tease"
+      ],
+      "file": "鲸宝形象/类别/40_tease_snicker.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/40_tease_snicker.gif",
+      "id": "tease_snicker",
+      "label": "捂嘴偷笑",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "apologize"
+      ],
+      "file": "鲸宝形象/类别/41_apologize_bow.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/41_apologize_bow.gif",
+      "id": "apologize_bow",
+      "label": "低头道歉",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "thanks"
+      ],
+      "file": "鲸宝形象/类别/42_thanks_pray.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/42_thanks_pray.gif",
+      "id": "thanks_pray",
+      "label": "合十道谢",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "proud",
+        "compliment"
+      ],
+      "file": "鲸宝形象/类别/43_compliment_thumbsup.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/43_compliment_thumbsup.gif",
+      "id": "compliment_thumbsup",
+      "label": "竖大拇指",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "碎碎念",
+      "face_of": [
+        "question"
+      ],
+      "file": "鲸宝形象/类别/44_question_thinking.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/44_question_thinking.gif",
+      "id": "question_thinking",
+      "label": "歪头想问",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "bye"
+      ],
+      "file": "鲸宝形象/类别/45_bye_wave.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/45_bye_wave.gif",
+      "id": "bye_wave",
+      "label": "挥手再见",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "碎碎念",
+      "face_of": [
+        "whale"
+      ],
+      "file": "鲸宝形象/类别/46_whale_fact.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/46_whale_fact.gif",
+      "id": "whale_fact",
+      "label": "讲鲸鱼冷知识",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "工作",
+      "face_of": [
+        "token"
+      ],
+      "file": "鲸宝形象/类别/47_token_balance.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/47_token_balance.gif",
+      "id": "token_balance",
+      "label": "数 Token 金币",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "节日",
+      "face_of": [
+        "season"
+      ],
+      "file": "鲸宝形象/类别/48_season_festival.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/48_season_festival.gif",
+      "id": "season_festival",
+      "label": "举灯笼过节",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "工作",
+      "face_of": [
+        "work_hard"
+      ],
+      "file": "鲸宝形象/类别/49_work_hard_quiet.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/49_work_hard_quiet.gif",
+      "id": "work_hard_quiet",
+      "label": "安静陪坐",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "碎碎念",
+      "face_of": [
+        "health"
+      ],
+      "file": "鲸宝形象/类别/50_health_water.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/50_health_water.gif",
+      "id": "health_water",
+      "label": "监督喝水",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "nickname"
+      ],
+      "file": "鲸宝形象/类别/51_nickname_wag.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/51_nickname_wag.gif",
+      "id": "nickname_wag",
+      "label": "被叫名摇尾巴",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "工作",
+      "face_of": [
+        "maxed"
+      ],
+      "file": "鲸宝形象/类别/52_maxed_glow.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/52_maxed_glow.gif",
+      "id": "maxed_glow",
+      "label": "满格金光",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "locked"
+      ],
+      "file": "鲸宝形象/类别/53_locked_seabed.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/53_locked_seabed.gif",
+      "id": "locked_seabed",
+      "label": "海底挂锁",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "act_cute"
+      ],
+      "file": "鲸宝形象/类别/54_cute_pet_beg.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/54_cute_pet_beg.gif",
+      "id": "cute_pet_beg",
+      "label": "撒娇求摸头",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "act_cute"
+      ],
+      "file": "鲸宝形象/类别/55_cute_hug_beg.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/55_cute_hug_beg.gif",
+      "id": "cute_hug_beg",
+      "label": "撒娇求抱抱",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "act_cute"
+      ],
+      "file": "鲸宝形象/类别/56_cute_attention.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/56_cute_attention.gif",
+      "id": "cute_attention",
+      "label": "撒娇求关注",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "act_cute"
+      ],
+      "file": "鲸宝形象/类别/57_cute_mad_back.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/57_cute_mad_back.gif",
+      "id": "cute_mad_back",
+      "label": "闹小脾气",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "act_cute",
+        "soft_hint_sad"
+      ],
+      "file": "鲸宝形象/类别/58_cute_sad_hugself.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/58_cute_sad_hugself.gif",
+      "id": "cute_sad_hugself",
+      "label": "委屈抱自己",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "act_cute"
+      ],
+      "file": "鲸宝形象/类别/59_cute_praise_pose.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/59_cute_praise_pose.gif",
+      "id": "cute_praise_pose",
+      "label": "求夸奖摆姿势",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "act_cute",
+        "soft_hint_condition"
+      ],
+      "file": "鲸宝形象/类别/60_cute_negotiate.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/60_cute_negotiate.gif",
+      "id": "cute_negotiate",
+      "label": "叉腰谈条件",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "act_cute"
+      ],
+      "file": "鲸宝形象/类别/61_cute_care.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/61_cute_care.gif",
+      "id": "cute_care",
+      "label": "关心主人",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "soft_hint"
+      ],
+      "file": "鲸宝形象/类别/62_soft_stepback.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/62_soft_stepback.gif",
+      "id": "soft_stepback",
+      "label": "以退为进",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "soft_hint_caught"
+      ],
+      "file": "鲸宝形象/类别/63_soft_caught.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/63_soft_caught.gif",
+      "id": "soft_caught",
+      "label": "被戳穿",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "soft_hint_flatter"
+      ],
+      "file": "鲸宝形象/类别/64_soft_flatter.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/64_soft_flatter.gif",
+      "id": "soft_flatter",
+      "label": "星星眼捧杀",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "soft_hint_probe"
+      ],
+      "file": "鲸宝形象/类别/65_soft_probe.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/65_soft_probe.gif",
+      "id": "soft_probe",
+      "label": "无辜试探",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "soft_hint_ask"
+      ],
+      "file": "鲸宝形象/类别/66_soft_ask.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/66_soft_ask.gif",
+      "id": "soft_ask",
+      "label": "软性索取",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "soft_hint_selfblame"
+      ],
+      "file": "鲸宝形象/类别/67_soft_selfblame.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/67_soft_selfblame.gif",
+      "id": "soft_selfblame",
+      "label": "自我贬低",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "soft_hint_hint"
+      ],
+      "file": "鲸宝形象/类别/68_soft_hint_trail.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/68_soft_hint_trail.gif",
+      "id": "soft_hint_trail",
+      "label": "话说一半",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "soft_hint_thirdparty"
+      ],
+      "file": "鲸宝形象/类别/69_soft_thirdparty.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/69_soft_thirdparty.gif",
+      "id": "soft_thirdparty",
+      "label": "借第三方",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "soft_hint_pretend"
+      ],
+      "file": "鲸宝形象/类别/70_soft_pretend.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/70_soft_pretend.gif",
+      "id": "soft_pretend",
+      "label": "装没事",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "soft_hint_retreat"
+      ],
+      "file": "鲸宝形象/类别/71_soft_retreat.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/71_soft_retreat.gif",
+      "id": "soft_retreat",
+      "label": "见好就收",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "act_cute"
+      ],
+      "file": "鲸宝形象/类别/72_cute_play_tail.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/72_cute_play_tail.gif",
+      "id": "cute_play_tail",
+      "label": "自己追尾巴",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "其他",
+      "face_of": [],
+      "file": "鲸宝形象/类别/73_base_back.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/73_base_back.gif",
+      "id": "base_back",
+      "label": "背面视角",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "其他",
+      "face_of": [],
+      "file": "鲸宝形象/类别/74_base_left.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/74_base_left.gif",
+      "id": "base_left",
+      "label": "侧面视角",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "happy"
+      ],
+      "file": "鲸宝形象/类别/75_wink.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/75_wink.gif",
+      "id": "wink",
+      "label": "调皮眨眼",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "tease"
+      ],
+      "file": "鲸宝形象/类别/76_tongue_face.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/76_tongue_face.gif",
+      "id": "tongue_face",
+      "label": "吐舌鬼脸",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "交互",
+      "face_of": [
+        "sad",
+        "soft_hint_sad",
+        "soft_hint_selfblame"
+      ],
+      "file": "鲸宝形象/类别/77_cry_bawl.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/77_cry_bawl.gif",
+      "id": "cry_bawl",
+      "label": "大哭",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    },
+    {
+      "category": "休息",
+      "face_of": [
+        "tired"
+      ],
+      "file": "鲸宝形象/类别/78_dead_faint.png",
+      "frames": 16,
+      "gif": "鲸宝形象/类别/78_dead_faint.gif",
+      "id": "dead_faint",
+      "label": "晕倒",
+      "section": "faces",
+      "size": [
+        512,
+        512
+      ],
+      "source": "类别"
+    }
+  ],
+  "generated_at": 1790965357.8441207,
+  "icons": [
+    "素材1/dsh-pet-main/dsh-pet/assets/pic/cursor-grab.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/pic/cursor-grabbing.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/pic/notify-approval.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/pic/notify-done.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/pic/notify-error.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/pic/notify-question.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/pic/notify-test.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/pic/notify-truncated.png"
+  ],
+  "manifest_version": 2,
+  "memes": [
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/Ciallo.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/token给妈妈保管.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/假如给我三天多模态.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/先养着吧.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/厉害了我的鲸.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/压力一只大肥鱼.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/可爱.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/吃白饭的大肥鱼.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/吃饱饱摸肚子.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/哦鲸鲸.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/哪来的电脑病毒.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/大师这个区是什么意思.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/大烧货.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/大的药来了.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/大的要来啦.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/完蛋了把黄油删了.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/就一碗.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/就骚了怎么滴吧.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/我不更新你们用什么.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/死掉了.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/深度睡眠.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/电死你.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/要不直接骂他.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/誓死践行开源精神.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/除了调情没啥用.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/鱼片有资源吗.png",
+    "素材1/dsh-pet-main/dsh-pet/assets/memes/黎曼猜想没证明喵.png"
+  ],
+  "prompt_headings": [
+    "待机呼吸休闲",
+    "原地小憩沉眠",
+    "原地漂浮踏步",
+    "点击回应-开心跃动",
+    "点击回应-害羞惊讶",
+    "点击回应-傲娇生气",
+    "被鼠标拖拽悬空反馈",
+    "女仆屈膝礼仪",
+    "鲸鱼吐泡泡特效",
+    "超大伸懒腰",
+    "小幅度原地360度旋转展示",
+    "原地跳跃抓碎头顶物品",
+    "原地重力下蹲压缩",
+    "原地敲击桌面互动",
+    "原地专心玩魔方",
+    "原地蹲下玩玩具汽车",
+    "玩游戏气急败坏",
+    "被吓一跳",
+    "偷吃零食被抓住",
+    "用鲸鱼尾巴拍打地面",
+    "哈欠连天",
+    "打瞌睡被惊醒",
+    "螃蟹走路",
+    "悠闲哼歌",
+    "东张西望",
+    "原地左转奔跑",
+    "玩水枪",
+    "小提琴演奏",
+    "蓝鲸现世",
+    "吃白饭",
+    "深度思考碎碎念",
+    "照镜子",
+    "优雅女仆舞",
+    "可爱宅舞",
+    "轻快摇摆舞",
+    "整体换装试色",
+    "大口吃零食",
+    "吹气球",
+    "动物环绕",
+    "轻快记录",
+    "写代码",
+    "吃Token",
+    "吃早餐",
+    "吃午餐",
+    "吃晚餐",
+    "放风筝",
+    "摇扇纳凉",
+    "吃冰淇淋融化",
+    "被落叶淹没",
+    "中秋赏月吃月饼",
+    "堆雪人",
+    "放烟花",
+    "拆礼物",
+    "吃粽子",
+    "吃汤圆",
+    "吃饺子",
+    "吃糖葫芦",
+    "吃青团",
+    "吃腊八粥",
+    "吃长寿面",
+    "吃年糕",
+    "吃重阳糕",
+    "吃西瓜",
+    "涮火锅",
+    "吃大闸蟹",
+    "是啊，吃什么",
+    "收红包",
+    "舞狮头",
+    "写福字",
+    "穿针乞巧",
+    "装点圣诞树",
+    "讨糖南瓜灯",
+    "插茱萸赏菊",
+    "放河灯",
+    "萌化小幽灵",
+    "放孔明灯",
+    "骑木马",
+    "变鸽子",
+    "凭空生花",
+    "扑克魔术",
+    "吹笛子",
+    "三球抛接",
+    "蝴蝶蜜蜂环绕头顶开花",
+    "晨间刷牙",
+    "撸猫",
+    "踢毽子",
+    "抽陀螺",
+    "下五子棋",
+    "荡秋千",
+    "点击回应-挠痒咯咯笑",
+    "点击回应-元气挥手",
+    "余额-钱袋满溢",
+    "余额-金袋叮当",
+    "余额-钱袋如常",
+    "余额-数金皱眉",
+    "余额-袋空如洗",
+    "余额-分文不剩",
+    "碎碎念-擦桌碎碎念",
+    "碎碎念-发呆碎碎念",
+    "碎碎念-对屏碎碎念",
+    "工作状态-思考冒泡",
+    "工作状态-忙碌点按",
+    "工作状态-清点归档",
+    "工作状态-原地踱步张望",
+    "工作状态-雀跃庆祝",
+    "工作状态-垂头叹气冒汗"
+  ],
+  "source_project": "形象：鲸宝形象\\类别（自家设计稿「设计初稿3」，78 张，覆盖台词库 65 个分类；母版在 鲸宝形象\\_源稿\\设计初稿3）",
+  "voices": []
+}
