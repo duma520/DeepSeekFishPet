@@ -1,4 +1,4 @@
-__version__ = "1.1.36"
+__version__ = "1.1.37"
 # =============================================================================
 #  DeepSeek 肥鱼娘桌宠 —— DeepSeekFishPet.py
 #  ---------------------------------------------------------------------------
@@ -6,7 +6,7 @@ __version__ = "1.1.36"
 #  会饿、会困、会想你；可以摸摸头、投喂、玩耍、睡觉，还能接入 DeepSeek 聊天。
 #
 #  ★ 形象来源：形象图住在程序目录下的「鲸宝形象」（立绘 12 张换装 / 表情 9 个 GIF /
-#    动作 106 个 / 启动图），素材包与数据表住在「大肥鱼素材表」。
+#    动作 106 个 / 启动图），数据表与清单住在「大肥鱼素材表」（★ v1.1.37 起只剩根目录那 10 个文件）。
 #    素材不在时，自动回退到程序内置的 QPainter 矢量画风（两边都能用）。
 #
 #  设计约定（改代码前请先读这一段）：
@@ -372,15 +372,15 @@ DFP_MAHJONG_READ_DELAY_MS = 900
 #     · 数字读法（`1.mp3` / `合计.mp3` / `番.mp3`）—— v1.1.20 起；见 dfp_number_search_dirs()
 #     · **形象语音**（`voice_<类别>_<序号>.mp3`）—— v1.1.23 起；见 dfp_user_voice_dirs()
 #   ⇒ 以后新录的东西都往这里丢（**程序目录或数据目录**下的「鲸宝音频」都认），不用动素材表。
-#   ⇒ 规则：**自己录过的类别，素材包（素材4 / 素材6）同一类的声音就不再播** ——
+#   ⇒ 规则：**语音只有一个家**（`鲸宝音频\`）—— ★ v1.1.37 起素材包机制已下线。
 #      包里那些是别人配的音色，与「统一音色」冲突。
 #   ★ v1.1.30 补记（用户：「素材2\assets\voice_*.mp3 移到 鲸宝音频，方便统一管理」）：
 #     主人最早录的那 **14 条参考音色**（`voice_poke_1~4` / `confirm_1~4` / `ask_1~3` / `done_1~3`）
 #     **已经从素材表搬进了这里** ⇒ 现在**所有形象语音都在「鲸宝音频」一个目录里**，
 #     `素材清单.json` 的 `voices` 变成 0 条（搬家脚本 `_scaffold\move_assets2_voices.py`，自带备份）。
 #   ★ v1.1.24（用户：「line-*.wav / v_*.wav / notice-*.wav 都要优先重新录，原来的先退役」）：
-#     素材包自带的声音**整个默认退役**（设置 `voice_use_pack` 默认 False）——
-#     不管你有没有录替代品，`line-*` / `v_*` / `notice-*` 一律不播；等你自己录好再开回来。
+#     ★ v1.1.37：素材包机制整个下线（素材4 / 素材6 已退役）⇒ 语音只有一个家：
+#     `鲸宝音频\`（`voice_<类别>_<序号>.*`）；提示音 `notice_*` 也只剩你自己录的那一套。
 #     类别名可以带下划线（`voice_notice_completed_1.mp3` → `notice_completed`），见 dfp_voice_category_from_name()。
 DFP_USER_VOICE_DIR_NAME = DFP_NUMBER_EXTRA_DIR_NAME
 DFP_USER_VOICE_PREFIX = "voice_"
@@ -1365,7 +1365,7 @@ DFP_LINES_FILE_NAME = "台词库.json"
 DFP_SOFT_PREFIX = "soft_hint"
 # ★ v1.1.14：自言自语单独用一个类别名！
 #   它不是台词库里的类别（台词照旧退回 idle），而是给控制器一个「这是它自己没事找话说」的信号 ——
-#   只有这种时候才顺便播一条素材包里的 `idle` 语音（摸头/投喂等互动有自己的类别）。
+#   只有这种时候才顺便播一条 `鲸宝音频\idle\` 里的语音（摸头/投喂等互动有自己的类别）。
 DFP_CHATTER_CATEGORY = "chatter"
 # ★ v1.1.22：启动台词单独一个类别名（台词库里的 `startup`）—— 启动时说它，并且顺便播
 #   `voice_startup_*` 那条语音（用户新录的）。这一类没有就退回原来的 greet。
@@ -5146,7 +5146,7 @@ DFP_DEFAULT_SETTINGS: Dict[str, Any] = {
     # ★ 语音台词（人工听写在 `素材清单.json` 的 voices[].text）：开了就把台词当字幕显示在气泡里。
     #   默认关，因为它会盖掉已有的离线台词（两者不是同一句话）。
     "voice_show_text": False,
-    "voice_on_idle": True,  # ★ v1.1.14：自言自语时也出声（用素材包里的 idle 语音）
+    "voice_on_idle": True,  # ★ v1.1.14：自言自语时也出声（用 `鲸宝音频\idle\` 里的语音）
     "voice_on_notice": True,  # ★ v1.1.14：任务完成/失败、余额变少、需要确认等提示音
     "voice_on_startup": True,  # ★ v1.1.22：程序启动时念一句启动台词（`voice_startup_*` 那条音频）
     # ★ v1.1.33：情绪 / 场景类语音 —— 录音清单第六节那几个「建议新增类别」已经接好线了
@@ -5157,7 +5157,7 @@ DFP_DEFAULT_SETTINGS: Dict[str, Any] = {
     "voice_on_greet": True,  # 打招呼 / 重新出现（Ctrl+H 唤回来、按时段问候）
     "voice_on_bye": True,  # 告别 / 被藏起来（Ctrl+H 藏起来之前）
     "voice_on_sad": True,  # 难过 / 出错
-    "voice_use_pack": False,  # ★ v1.1.24：素材包（素材4/素材6）自带的声音默认退役（line-*/v_*/notice-* 一律不播）
+    # ★ v1.1.37：设置项 `voice_use_pack` 已随素材包机制删除（设置 132 → 131）
     # ★ v1.1.36：状态形象（睡觉 / 忙 / 等 / 休息 / 庆祝 / 出错）—— 用的是新形象集里的图
     #   （v1.1.15 那套「素材5 的非人形小鲸鱼 SVG」已退役，见 `DFP_FORM_FACE_MAP`）
     "whale_form_enabled": True,  # 总开关：关掉就始终用设置里选的基础形象
@@ -5207,7 +5207,7 @@ DFP_DEFAULT_SETTINGS: Dict[str, Any] = {
     "behavior_asset_interval_sec": 40,
     "behavior_seasonal_enabled": True,  # 节日动作只在对应时段出现
     "behavior_asset_categories": "",  # 空格分隔的类别白名单，空 = 全部
-    "asset_character": "",  # ★ v1.1.14：用哪个形象（空 = 素材清单里的第一个；素材包里的形象写 pack:素材4/xxx）
+    "asset_character": "",  # ★ v1.1.14：用哪张基础形象（空 = 素材清单里的第一张）
     # ★ v1.1.35：新形象（`鲸宝形象\类别\` 那 78 张）的「台词换形象」开关
     "look_expression_follow": True,  # 说哪一类话就换成对应的形象图（DFP_SAY_FACE_MAP）
     # --- 梦境（★ 骨架从 `大肥鱼素材表\梦境.json` 读，读不到用内置兜底）---
@@ -6144,8 +6144,7 @@ class DFPBackupManager:
 #  ★ v1.1.32：**桌宠会显示的形象图有自己的家了**（与「鲸宝音频」并列，都在程序目录下）：
 #     「鲸宝形象\立绘」形象本体 /「表情」表情动画 /「动作」106 个动作片 /「启动图.png」；
 #     相对路径解析顺序 = **素材表 → 程序目录 → 数据目录**（两者都认，搬不搬都能跑）。
-#  其余素材仍住「大肥鱼素材表」（第三方素材包 素材1~6 都在里面）：
-#    · 素材包带来的立绘 / 形态 SVG（素材4 / 素材5 / 素材6）
+#  其余素材仍住「大肥鱼素材表」（★ v1.1.37 起只剩根目录那 10 个 JSON / MD，包已退役）：
 #  用户往目录里丢新素材，重跑 _scaffold\build_asset_manifest.py 生成中文名清单即可；
 #  没有清单时程序会用内置兜底扫描（只按文件名关键字分类，两个家都扇），不会崩。
 # =============================================================================
@@ -6155,7 +6154,7 @@ DFP_ASSET_MANIFEST_NAME = "素材清单.json"
 DFP_ASSET_SPRITE_EXT = (".png", ".webp", ".jpg", ".jpeg", ".bmp")
 DFP_ASSET_MOVIE_EXT = (".gif", ".webp")
 DFP_ASSET_AUDIO_EXT = (".mp3", ".wav", ".ogg", ".m4a")
-# ★ 这些子目录里是素材包自带的表情包 / 鼠标光标图，不是桌宠的表情状态：
+# ★ 这些子目录里是旧素材包自带的表情包 / 鼠标光标图（已退役），不是桌宠的表情状态：
 #   兜底扫描必须跳过，否则「重新扫描素材表」会把它们当成表情（桌宠会显示表情包或光标）。
 DFP_ASSET_IGNORED_DIRS = ("memes", "pic", "icons", "icon", "cursor", "fonts", "font", ".git")
 # ★ v1.1.36：名字里带这些词的目录是**原始稿 / 归档**，不是能上屏的素材 ——
@@ -6196,30 +6195,20 @@ DFP_CHARACTER_ANIM_DIR = "动作"
 DFP_SPLASH_IMAGE_NAMES = ("启动图.png", "启动图.jpg", "启动图.jpeg", "启动图.webp", "启动图.bmp")
 DFP_SPLASH_IMAGE_BOX = (16, 46, 144, 154)  # x, y, 宽, 高（比手绘那张 130x154 稍宽，横图也装得下）
 
-# ★ 素材包（v1.1.14）：素材表根目录下**自带清单的形象包**，如「素材4」：
-#     <素材表>\素材4\assets\voices\manifest.json   ← 包自己的语音清单（记着每条音频的文本）
-#     <素材表>\素材4\assets\voices\line-*.wav      ← 闲聊 / 摸头语音
-#     <素材表>\素材4\assets\voices\notice-*.wav    ← 任务状态提示音
-#     <素材表>\素材4\assets\skins\*.png            ← 可替换的立绘（形象）
-#   包**不写进 `素材清单.json`**（那份清单是 build_asset_manifest.py 生成的），
-#   而是运行时合并进来 —— 包整个删掉也不会影响原有效果。
-DFP_ASSET_PACK_VOICE_MANIFEST = os.path.join("assets", "voices", "manifest.json")
-DFP_ASSET_PACK_VOICE_DIR = os.path.join("assets", "voices")
-DFP_ASSET_PACK_SKIN_DIR = os.path.join("assets", "skins")
-DFP_ASSET_PACK_NOTICE_PREFIX = "notice-"
-# 包清单里的 `kind` → 程序里的语音类别（pat＝被摸头，与现有 poke 合池）
-DFP_ASSET_PACK_KIND_CATEGORY: Dict[str, str] = {
-    "idle": "idle",
-    "pat": "poke",
-    "poke": "poke",
-    "confirm": "confirm",
-    "done": "done",
-    "ask": "ask",
-}
-# 提示音的类别前缀：`notice-completed-1.wav` → 类别 `notice_completed`
-DFP_ASSET_PACK_NOTICE_CATEGORY_PREFIX = "notice_"
-# 包清单里声明的提示音状态（与文件名的中段一一对应）
-DFP_ASSET_PACK_NOTICE_STATUSES: Tuple[str, ...] = (
+# ★ v1.1.37：**素材包机制整个下线**（用户 2026-10-03 原话：「素材4 和 素材6 也下架，因为已经
+#   统一使用鲸宝形象 和 鲸宝音频。」）—— 形象一律来自 `鲸宝形象\类别\`、语音一律来自
+#   `鲸宝音频\`，素材表根目录下**再没有任何「自带清单的包」**了。随之删掉的东西：
+#     · 常量 `DFP_ASSET_PACK_*`；库方法 `dfp_pack_dirs` / `dfp_pack_voices` /
+#       `dfp_pack_characters` / `dfp_pack_summary`（及三个包缓存）；设置项 `voice_use_pack`（设置 132 → 131）；
+#     · 两个包（素材4 / 素材6）的文件本身也已退役（工具 `_scaffold\retire_packs.py`）。
+#   历史实现见 `version\DeepSeekFishPet - 1.1.36 状态形象换成新形象图.py`；
+#   以后想再引入「自带清单的包」，得把这套重新写回来。
+#
+# 提示音（`notice_*`）保留，但音源只剩一处：你自己录的
+#   `鲸宝音频\notice\voice_notice_completed_1.mp3` → 类别 `notice_completed`
+DFP_NOTICE_CATEGORY_PREFIX = "notice_"
+# 提示音的 6 类状态（录音清单第六节给的建议名字就用这几个）
+DFP_NOTICE_STATUSES: Tuple[str, ...] = (
     "completed",
     "failed",
     "interrupted",
@@ -6228,7 +6217,7 @@ DFP_ASSET_PACK_NOTICE_STATUSES: Tuple[str, ...] = (
     "approval",
 )
 # 提示音的中文名（设置窗口试听按钮与日志里用）
-DFP_ASSET_PACK_NOTICE_LABELS: Dict[str, str] = {
+DFP_NOTICE_LABELS: Dict[str, str] = {
     "completed": "任务完成",
     "failed": "任务失败",
     "interrupted": "被打断",
@@ -6460,11 +6449,8 @@ class DFPAssetLibrary(QObject):
         self._dfp_pixmap_cache: Dict[str, QPixmap] = {}
         self._dfp_movie_cache: Dict[str, "QMovie"] = {}
         self._dfp_last_error = ""
-        # ★ v1.1.14：素材包（素材4 这类自带清单的包）缓存 —— 换目录/重载时清空
-        self._dfp_pack_dirs_cache: Optional[List[str]] = None
-        self._dfp_pack_voice_cache: Optional[List[Dict[str, Any]]] = None
-        self._dfp_pack_char_cache: Optional[List[Dict[str, Any]]] = None
         # ★ v1.1.23：用户自己录的语音（`鲸宝音频\voice_<类别>_<序号>.*`）缓存
+        #   ★ v1.1.37：素材包那三个缓存随机制一起删掉了
         self._dfp_user_voice_cache: Optional[List[Dict[str, Any]]] = None
         # ★ v1.1.35：台词形象的「轮着挑候选」计数（按台词类别记账，如 act_cute 的 9 张）
         self._dfp_face_cycle: Dict[str, int] = {}
@@ -6510,7 +6496,7 @@ class DFPAssetLibrary(QObject):
     def dfp_load(self, force: bool = False) -> bool:
         if self._dfp_ready and not force:
             return True
-        self._dfp_clear_pack_cache()
+        self._dfp_clear_caches()
         root = self.dfp_root()
         if not os.path.isdir(root):
             self._dfp_last_error = "素材目录不存在：%s" % root
@@ -6533,8 +6519,6 @@ class DFPAssetLibrary(QObject):
         self._dfp_last_error = "" if self._dfp_ready else "素材清单里没有任何形象素材"
         if self._dfp_logger is not None:
             self._dfp_logger.dfp_info("素材已载入：%s" % self.dfp_summary())
-            if self.dfp_pack_dirs():
-                self._dfp_logger.dfp_info("%s" % self.dfp_pack_summary())
         try:
             self.dfpScanned.emit(self.dfp_count(), self.dfp_summary())
         except Exception:
@@ -6605,7 +6589,7 @@ class DFPAssetLibrary(QObject):
         faces_by_id: Dict[str, Dict[str, Any]] = {}
         face_order: List[str] = []
         saw_any = False
-        # ★ v1.1.32：要扇两个家 —— 素材表（第三方素材包都在里面）+「形象图自己的家」`鲸宝形象\`。
+        # ★ v1.1.32：要扇两个家 —— 素材表（★ v1.1.37 起只剩数据表与清单）+「形象图自己的家」`鲸宝形象\`。
         #   第二个家的相对路径带 `鲸宝形象/` 前缀（解析时会在程序目录 / 数据目录下找）。
         scan_roots: List[Tuple[str, str]] = [(root, "")]
         for folder in dfp_character_dirs():
@@ -6665,7 +6649,7 @@ class DFPAssetLibrary(QObject):
             return [picked[key] for key in order]
 
         for current, dirs, files in _dfp_walk_image_roots(scan_roots):
-            # ★ memes / pic 是素材包里的表情包与光标图，不是桌宠的表情状态；
+            # ★ memes / pic 是旧素材包里的表情包与光标图，不是桌宠的表情状态；
             #   以前把它们当表情扫进来 ⇒ 桌宠会显示一张表情包或鼠标光标。
             dirs[:] = [
                 d
@@ -6745,7 +6729,7 @@ class DFPAssetLibrary(QObject):
                 if ext in DFP_ASSET_AUDIO_EXT:
                     # ★ v1.1.36：素材表里的音频**不再扫进清单**。
                     #   理由：① 素材包自带的那批（`素材4\assets\voices\…`）是**运行时**由
-                    #   `dfp_pack_voices()` 合并的（v1.1.24 起这么定的）；② 本机语音归
+                    #   `dfp_pack_voices()` 合并的 —— ★ v1.1.37 起素材包机制已下线；② 本机语音归
                     #   `鲸宝音频\`（v1.1.30 搬完那 14 条）。再扫一遍只会把包语音写成
                     #   「本机语音 93 条」（实测就是这么把语音那一项弄脏的），所以直接跳过。
                     continue
@@ -6894,14 +6878,13 @@ class DFPAssetLibrary(QObject):
         return dict(items[0])
 
     def dfp_characters(self) -> List[Dict[str, Any]]:
-        """可选形象：清单的 `characters` + 素材包里的形象（顺序：清单在前）。
+        """可选形象：清单的 `characters`（★ v1.1.37 起只有这一处）。
 
         ★ v1.1.35：形象图统一到 `鲸宝形象\类别\` 之后，清单的 `characters` 就是
         **3 张基础形象**（正面待机 / 背面 / 侧面）；旧那 12 张换装立绘已退役。
+        ★ v1.1.37：素材包机制下线 —— 以前这里还会把包里的立绘一起列出来（那套代码已删）。
         """
-        items = [dict(item) for item in (self._dfp_manifest.get("characters") or [])]
-        items.extend(self.dfp_pack_characters())
-        return items
+        return [dict(item) for item in (self._dfp_manifest.get("characters") or [])]
 
     def dfp_character_by_id(self, character_id: str) -> Optional[Dict[str, Any]]:
         """按 id 取一张形象（找不到返回 None）。
@@ -6917,149 +6900,16 @@ class DFPAssetLibrary(QObject):
                 return dict(item)
         return None
 
-    # --- ★ v1.1.14：素材包（素材4 这类自带清单的形象包）---
-    def _dfp_clear_pack_cache(self) -> None:
-        self._dfp_pack_dirs_cache = None
-        self._dfp_pack_voice_cache = None
-        self._dfp_pack_char_cache = None
+    # --- ★ v1.1.37：缓存清理（素材包那三个缓存随机制一起删掉了）---
+    def _dfp_clear_caches(self) -> None:
         # ★ v1.1.23：用户录音目录也可能刚丢进新文件，跟着一起重扫
         self._dfp_user_voice_cache = None
         # ★ v1.1.15：形态图是渲染好的位图，换了素材目录/重扫之后必须重画
         _DFP_FORM_PIXMAP_CACHE.clear()
 
-    def dfp_pack_dirs(self) -> List[str]:
-        """素材表根目录下「自带语音清单 / 立绘目录」的子目录名（如 `素材4`、`素材6`）。
 
-        ★ v1.1.36：不再把「目录里有形态 SVG」当成素材包 —— 那套（素材5）已经退役，
-          里面的旧鲸鱼 SVG 也搬进 `_退役_forms\` 了。
-        """
-        if self._dfp_pack_dirs_cache is not None:
-            return list(self._dfp_pack_dirs_cache)
-        found: List[str] = []
-        root = self.dfp_root()
-        try:
-            if os.path.isdir(root):
-                for name in sorted(os.listdir(root)):
-                    folder = os.path.join(root, name)
-                    if not os.path.isdir(folder):
-                        continue
-                    if name.startswith(DFP_ASSET_SKIP_PREFIX):
-                        continue  # ★ 下划线开头＝退役/源稿区，不是包
-                    has_manifest = os.path.isfile(os.path.join(folder, DFP_ASSET_PACK_VOICE_MANIFEST))
-                    has_skins = os.path.isdir(os.path.join(folder, DFP_ASSET_PACK_SKIN_DIR))
-                    if has_manifest or has_skins:
-                        found.append(name)
-        except Exception as exc:
-            self._dfp_note_error("扫描素材包目录失败：%s: %s" % (type(exc).__name__, exc))
-        self._dfp_pack_dirs_cache = found
-        if found and self._dfp_logger is not None:
-            self._dfp_logger.dfp_info("发现素材包：%s" % "、".join(found))
-        return list(found)
 
-    def dfp_pack_voices(self) -> List[Dict[str, Any]]:
-        """素材包里的语音：包清单的 `lines[]`（含台词）+ `notice-*.wav` 提示音。"""
-        if self._dfp_pack_voice_cache is not None:
-            return [dict(item) for item in self._dfp_pack_voice_cache]
-        items: List[Dict[str, Any]] = []
-        for pack in self.dfp_pack_dirs():
-            base = os.path.join(self.dfp_root(), pack)
-            voice_dir = os.path.join(base, DFP_ASSET_PACK_VOICE_DIR)
-            manifest_path = os.path.join(base, DFP_ASSET_PACK_VOICE_MANIFEST)
-            payload = dfp_read_json(manifest_path, None)
-            if isinstance(payload, dict):
-                for row in payload.get("lines") or []:
-                    if not isinstance(row, dict):
-                        continue
-                    rel = str(row.get("file") or "").replace("\\", "/").strip()
-                    kind = str(row.get("kind") or "").strip().lower()
-                    if not rel or not kind:
-                        continue
-                    full = "%s/assets/%s" % (pack, rel)
-                    if not os.path.isfile(self.dfp_abs(full)):
-                        self._dfp_note_error("素材包 %s 的语音文件不存在：%s" % (pack, rel))
-                        continue
-                    entry: Dict[str, Any] = {
-                        "category": DFP_ASSET_PACK_KIND_CATEGORY.get(kind, kind),
-                        "label": "素材包 %s · %s" % (pack, str(row.get("id", "")).strip()),
-                        "file": full,
-                        "text": str(row.get("text") or ""),
-                        "kind": kind,
-                        "source": "pack:%s" % pack,
-                    }
-                    # 包清单里可选的速度 / 增益 / 语气说明（line-16 就带了 speed/gain）
-                    for extra in ("speed", "gain", "instruct"):
-                        value = row.get(extra)
-                        if value not in (None, ""):
-                            entry[extra] = value
-                    items.append(entry)
-            elif os.path.isdir(voice_dir):
-                # 清单不在也照样能用提示音（只是没有台词）
-                self._dfp_note_error("素材包 %s 缺 %s（只收提示音）" % (pack, DFP_ASSET_PACK_VOICE_MANIFEST))
-            # 提示音：notice-<status>[-N].wav → 类别 notice_<status>
-            try:
-                names = sorted(os.listdir(voice_dir)) if os.path.isdir(voice_dir) else []
-            except Exception as exc:
-                self._dfp_note_error("读素材包语音目录失败（%s）：%s: %s" % (pack, type(exc).__name__, exc))
-                names = []
-            for name in names:
-                stem, ext = os.path.splitext(name)
-                low = stem.lower()
-                if ext.lower() not in DFP_ASSET_AUDIO_EXT or not low.startswith(DFP_ASSET_PACK_NOTICE_PREFIX):
-                    continue
-                status = low[len(DFP_ASSET_PACK_NOTICE_PREFIX):].split("-")[0].strip()
-                if not status:
-                    continue
-                items.append(
-                    {
-                        "category": "%s%s" % (DFP_ASSET_PACK_NOTICE_CATEGORY_PREFIX, status),
-                        "label": "提示音 · %s" % (DFP_ASSET_PACK_NOTICE_LABELS.get(status, status)),
-                        "file": "%s/%s/%s" % (pack, DFP_ASSET_PACK_VOICE_DIR.replace("\\", "/"), name),
-                        "text": "",
-                        "kind": "notice",
-                        "status": status,
-                        "source": "pack:%s" % pack,
-                    }
-                )
-        self._dfp_pack_voice_cache = items
-        return [dict(item) for item in items]
 
-    def dfp_pack_characters(self) -> List[Dict[str, Any]]:
-        """素材包 `assets/skins` 里的立绘（可以当普通形象用，换形象就靠它们）。"""
-        if self._dfp_pack_char_cache is not None:
-            return [dict(item) for item in self._dfp_pack_char_cache]
-        items: List[Dict[str, Any]] = []
-        for pack in self.dfp_pack_dirs():
-            skin_dir = os.path.join(self.dfp_root(), pack, DFP_ASSET_PACK_SKIN_DIR)
-            try:
-                names = sorted(os.listdir(skin_dir)) if os.path.isdir(skin_dir) else []
-            except Exception as exc:
-                self._dfp_note_error("读素材包立绘目录失败（%s）：%s: %s" % (pack, type(exc).__name__, exc))
-                names = []
-            for name in names:
-                stem, ext = os.path.splitext(name)
-                if ext.lower() not in DFP_ASSET_SPRITE_EXT:
-                    continue
-                items.append(
-                    {
-                        "id": "pack:%s/%s" % (pack, stem),
-                        "label": "%s · %s" % (pack, stem),
-                        "file": "%s/%s/%s" % (pack, DFP_ASSET_PACK_SKIN_DIR.replace("\\", "/"), name),
-                        "source": "pack:%s" % pack,
-                    }
-                )
-        self._dfp_pack_char_cache = items
-        return [dict(item) for item in items]
-
-    def dfp_pack_summary(self) -> str:
-        """一行摘要：`素材包：素材4（3 形象 · 43 条语音）`（没有包就说没有）。"""
-        packs = self.dfp_pack_dirs()
-        if not packs:
-            return "素材包：无"
-        return "素材包：%s（%d 形象 · %d 条语音）" % (
-            "、".join(packs),
-            len(self.dfp_pack_characters()),
-            len(self.dfp_pack_voices()),
-        )
 
     # --- ★ v1.1.36：状态形象（睡觉 / 忙 / 等 / 休息 / 庆祝 / 出错）---
     #   ★ 以前这里是「读素材包里的形态 SVG」（素材5 那 7 张旧鲸鱼）；现在改成
@@ -7255,29 +7105,20 @@ class DFPAssetLibrary(QObject):
         return dict(dfp_random_pick(fresh or pool, pool[0]))
 
     def dfp_voices(self, category: str = "") -> List[Dict[str, Any]]:
-        """某一类语音（自己录的 + 清单里的 + 素材包里的，合池；不传类别就是全部）。
+        """某一类语音（自己的录音 + 清单里的，合池；不传类别就是全部）。
 
-        ★ v1.1.23（统一音色）：**自己在「鲸宝音频」里录过的类别，素材包（素材4 / 素材6）同一类的
-          声音就不再进池** —— 包里那些是别人配的音色，一起播就“一句一个声音”。
-          ★ v1.1.30 补记：主人最早那 14 条参考音色（`voice_poke_1~4` 那批）**也搬进了「鲸宝音频」**，
-          所以现在**语音只有一个家**：`鲸宝音频\`（提示音仍然照旧，它们是音效不是台词）。
-          自己已录的类别在池里也排在前面（悬停清单更好读）。
+        ★ v1.1.23（统一音色）：自己在 `鲸宝音频` 里录的排在前面（悬停清单更好读）。
+          ★ v1.1.30 补记：主人最早那 14 条参考音色（`voice_poke_1~4` 那批）也搬进了「鲸宝音频」。
+          ★ v1.1.37：**语音只有一个家** —— `鲸宝音频\`；素材包机制（及 `voice_use_pack`）已下线。
         """
         mine = self.dfp_user_voices()
-        my_categories = set(str(item.get("category") or "") for item in mine if str(item.get("category") or ""))
-        # ★ v1.1.24：素材包自带的声音默认整个退役（`voice_use_pack` 默认 False）——
-        #   用户明确要求「line-* / v_* / notice-* 先退休，我自己重录」。
-        keep_pack = bool(self._dfp_settings.dfp_get("voice_use_pack", False))
         items: List[Dict[str, Any]] = []
         for item in mine:
             if category and str(item.get("category")) != str(category):
                 continue
             items.append(dict(item))
-        for item in list(self._dfp_manifest.get("voices") or []) + self.dfp_pack_voices():
+        for item in list(self._dfp_manifest.get("voices") or []):
             if category and str(item.get("category")) != str(category):
-                continue
-            from_pack = str(item.get("source") or "").startswith("pack:")
-            if from_pack and (not keep_pack or str(item.get("category") or "") in my_categories):
                 continue
             entry = dict(item)
             # ★ v1.1.23：清单里那几条补一个来源标记（以前是空的）——界面/探针一看就知道是你的
@@ -7348,7 +7189,7 @@ class DFPAssetLibrary(QObject):
         return [dict(item) for item in items]
 
     def dfp_voice_categories(self) -> List[Tuple[str, int]]:
-        """语音类别 → 条数（界面与日志用；含素材包带来的 idle / notice_* 类别）。"""
+        """语音类别 → 条数（界面与日志用；含 `鲸宝音频\` 里的提示音类别）。"""
         counts: Dict[str, int] = {}
         for item in self.dfp_voices():
             key = str(item.get("category") or "").strip()
@@ -7357,8 +7198,11 @@ class DFPAssetLibrary(QObject):
         return sorted(counts.items(), key=lambda pair: (-pair[1], pair[0]))
 
     def dfp_voice_notice(self, status: str) -> Optional[Dict[str, Any]]:
-        """按任务状态取一条提示音（completed / failed / interrupted / needs_help / low_balance / approval）。"""
-        key = "%s%s" % (DFP_ASSET_PACK_NOTICE_CATEGORY_PREFIX, str(status or "").strip().lower())
+        """按任务状态取一条提示音（completed / failed / interrupted / needs_help / low_balance / approval）。
+
+        ★ v1.1.37：音源只剩 `鲸宝音频\notice\voice_notice_<状态>_<序号>.*`（素材包已下线）。
+        """
+        key = "%s%s" % (DFP_NOTICE_CATEGORY_PREFIX, str(status or "").strip().lower())
         pool = self.dfp_voices(key)
         if not pool:
             return None
@@ -7379,7 +7223,7 @@ class DFPAssetLibrary(QObject):
         ★ v1.1.32：形象图有了自己的家（`鲸宝形象\`）⇒ 依次在
           **素材表 → 程序目录 → 数据目录** 下找，第一个真的存在的就算；
           三处都没有时返回素材表那份（报错信息与以前一致，不会变成空串）。
-          绝对路径原样返回（素材包与临时测试用得上）。
+          绝对路径原样返回（临时测试用得上）。
         """
         text = str(relative or "")
         if not text:
@@ -7455,7 +7299,6 @@ class DFPAssetLibrary(QObject):
 
     def dfp_stats(self) -> Dict[str, Any]:
         counts = self._dfp_manifest.get("counts") or {}
-        packs = self.dfp_pack_dirs()
         return {
             "root": self.dfp_root(),
             "manifest": self.dfp_manifest_path(),
@@ -7474,14 +7317,10 @@ class DFPAssetLibrary(QObject):
             "categories": self.dfp_categories(),
             "source": str(self._dfp_manifest.get("source_project") or ""),
             "error": self._dfp_last_error,
-            # ★ v1.1.14：素材包（素材4 这类）——不改上面那几个「清单口径」的数字，另开几个键
-            "packs": packs,
-            "pack_characters": len(self.dfp_pack_characters()),
-            "pack_voices": len(self.dfp_pack_voices()),
+            # ★ v1.1.37：素材包机制下线 ⇒ 不再有 packs / pack_* / pack_summary 几个键
             "characters_all": len(self.dfp_characters()),
             "voices_all": len(self.dfp_voices()),
             "voice_categories": self.dfp_voice_categories(),
-            "pack_summary": self.dfp_pack_summary(),
             # ★ v1.1.36：状态形象（新形象集里的图）—— 同样不动清单口径
             "forms": len(self.dfp_forms()),
             "form_states": [str(item.get("state")) for item in self.dfp_forms()],
@@ -7572,8 +7411,8 @@ class DFPVoicePlayer(QObject):
         if not self.dfp_is_available():
             return None
         name = str(category or "poke")
-        if name.startswith(DFP_ASSET_PACK_NOTICE_CATEGORY_PREFIX):
-            # ★ v1.1.14：素材包里的任务状态提示音（notice_completed / notice_failed / …）
+        if name.startswith(DFP_NOTICE_CATEGORY_PREFIX):
+            # ★ v1.1.14：任务状态提示音（notice_completed / notice_failed / …；v1.1.37 起音源=自己的录音）
             if not bool(self._dfp_settings.dfp_get("voice_on_notice", True)):
                 return None
         else:
@@ -14013,7 +13852,7 @@ DFP_HELP_HTML = """
     升级 → 魔法装、被夸 → 正式装、季节类按当月换夏装 / 冬装 / 新中式 / 运势），
     换完保持 1 分钟，然后自动回你在设置里选的那张</li>
 <li>两个开关都在「设置 → 形象素材」里；想固定一张立绘，就把「立绘跟着台词换装」关掉</li>
-<li>换形象：设置里的下拉框，或菜单「换形象」；素材包（如素材4）里的立绘也会一起列出来</li>
+<li>换形象：设置里的下拉框，或菜单「换个基础形象」（★ v1.1.37 起的候选就是 3 张：正面 / 背面 / 侧面）</li>
 <li>旧形象与设计稿母版分别归档在 <code>鲸宝形象\_退役\</code> 与 <code>鲸宝形象\_源稿\</code>，
     程序扫描时会跳过它们（下划线开头的目录一律不当素材）</li>
 </ul>
@@ -14319,20 +14158,13 @@ class DFPSettingsDialog(QDialog):
             form6,
             "自言自语时也出声（idle）",
             "voice_on_idle",
-            "蹭到素材包（如素材4）里的 idle 语音时才会响；没装包时什么也不会发生",
+            "你在 `鲸宝音频\idle\` 里录了 `voice_idle_*.mp3` 时才会响；没录就只显示气泡台词",
         )
         self._dfp_check(
             form6,
             "任务 / 异常提示音（notice）",
             "voice_on_notice",
             "提示音 6 类：任务完成 / 失败 / 被打断 / 需要帮忙 / 余额变少 / 需要确认（弹确认框前）；录音名 `voice_notice_completed_1.mp3` 这种",
-        )
-        self._dfp_check(
-            form6,
-            "播放素材包自带的声音（素材4 / 素材6）",
-            "voice_use_pack",
-            "★ 默认**关**：素材包里别人配的 `line-*.wav` / `v_*.wav` / `notice-*.wav` 一律不播，全部用你自己录的（素材2 与 `鲸宝音频\\`）；\n"
-            "想听回包里那一套就打开它（自录的仍然优先，不会被盖掉）",
         )
         self._dfp_check(
             form6,
@@ -14402,7 +14234,7 @@ class DFPSettingsDialog(QDialog):
         return page
 
     def _dfp_character_choices(self) -> List[Tuple[str, str]]:
-        """形象下拉的可选项：素材清单里的形象 + 素材包（素材4）的 skins。"""
+        """形象下拉的可选项：素材清单里的 `characters`（★ v1.1.37 起就是 3 张基础形象）。"""
         library = self._dfp_library
         if library is None:
             return [("", "（默认）")]
@@ -14418,18 +14250,17 @@ class DFPSettingsDialog(QDialog):
         台词是人工听写在 `素材清单.json` 的 `voices[].text` 里的（语音文件本身没有任何文字信息），
         没听写的会标出来，方便以后补齐。
 
-        ★ v1.1.14：`notice` 不是一条语音，而是素材包里的 6 类提示音
-          （`notice_completed` / `notice_failed` / …）。悬停必须把它们一起列出来，
-          否则「🔔 试听提示音」会去查一个根本不存在的类别，连提示框都是空的。
+        ★ v1.1.37：`notice` 不是一条语音，而是 6 类提示音（`notice_completed` / `notice_failed` / …，
+          自己录在 `鲸宝音频\notice\`）。悬停必须把它们一起列出来，否则提示框会是空的。
         """
         library = self._dfp_library
         if library is None or not library.dfp_is_ready():
             return ""
         wanted = str(category or "").strip()
-        if wanted == DFP_ASSET_PACK_NOTICE_PREFIX.rstrip("-"):
+        if wanted == "notice":
             categories = [
-                "%s%s" % (DFP_ASSET_PACK_NOTICE_CATEGORY_PREFIX, name)
-                for name in DFP_ASSET_PACK_NOTICE_STATUSES
+                "%s%s" % (DFP_NOTICE_CATEGORY_PREFIX, name)
+                for name in DFP_NOTICE_STATUSES
             ]
         else:
             categories = [wanted]
@@ -14439,8 +14270,8 @@ class DFPSettingsDialog(QDialog):
         for name in categories:
             tag = ""
             if multi:
-                status = name[len(DFP_ASSET_PACK_NOTICE_CATEGORY_PREFIX):]
-                tag = "[%s] " % DFP_ASSET_PACK_NOTICE_LABELS.get(status, status)
+                status = name[len(DFP_NOTICE_CATEGORY_PREFIX):]
+                tag = "[%s] " % DFP_NOTICE_LABELS.get(status, status)
             for item in library.dfp_voices(name):
                 filename = os.path.basename(str(item.get("file") or ""))
                 if not filename:
@@ -14448,30 +14279,39 @@ class DFPSettingsDialog(QDialog):
                 text = str(item.get("text") or "")
                 if text:
                     rows.append("· %s%s：%s" % (tag, filename, text))
-                elif str(item.get("kind") or "") == "notice":
-                    # ★ v1.1.14：素材包里的提示音是纯音效，本来就没台词，别写成「暂未听写」
-                    rows.append("· %s%s：（音效，无台词）" % (tag, filename))
                 elif str(item.get("source") or "").startswith("user:"):
                     # ★ v1.1.23：自己录在「鲸宝音频」里的（还没登记台词）
                     rows.append("· %s%s：（你自己的录音）" % (tag, filename))
                 else:
                     unknown += 1
                     rows.append("· %s%s：（暂未听写台词）" % (tag, filename))
+        # ★ v1.1.37：`notice` 是 6 个子类别（素材包退役后音源只剩你自己录的）⇒ 悬停里
+        #   **永远**把 6 类的名字列出来，照着录就知道该录哪些；还没录时再把「去哪儿录」的说明接在后面。
+        notice_summary = ""
+        if multi:
+            notice_summary = "6 类提示音：%s（录音名形如 `voice_notice_completed_1.mp3`）" % " / ".join(
+                "[%s] " % DFP_NOTICE_LABELS.get(name, name) for name in DFP_NOTICE_STATUSES
+            )
         if not rows:
             # ★ v1.1.22：还没录音的类别（例如刚设计好台词、正准备录的 `startup`）要给一句话说明，
-            #   别留个空提示框让人以为按钮坏了。★ v1.1.24：素材包退役后，这句就是常态。
+            #   别留个空提示框让人以为按钮坏了。★ v1.1.37：语音只剩自己录的那一套，这句就是常态。
             count = len(dfp_lines(wanted))
             if count:
-                return (
+                hint = (
                     "%s 这一类还没有语音文件 —— 台词已经备好（%d 条），见 `大肥鱼素材表\\录音清单.md` 里的 `%s` 一节；"
                     "录成 `voice_%s_1.mp3` 起、放进 `%s\\` 就能出声。" % (wanted, count, wanted, wanted, DFP_USER_VOICE_DIR_NAME)
                 )
-            return (
-                "%s 这一类还没有语音文件 —— 录音名照 `voice_%s_1.mp3` 这种写，"
-                "丢进 `%s\\`（见 `大肥鱼素材表\\录音清单.md`），点「重新扫描素材表」就生效。"
-                % (wanted, wanted, DFP_USER_VOICE_DIR_NAME)
-            )
-        head = "提示音 %d 类共 %d 条" % (len(categories), len(rows)) if multi else "%s 类共 %d 条" % (wanted, len(rows))
+            else:
+                hint = (
+                    "%s 这一类还没有语音文件 —— 录音名照 `voice_%s_1.mp3` 这种写，"
+                    "丢进 `%s\\`（见 `大肥鱼素材表\\录音清单.md`），点「重新扫描素材表」就生效。"
+                    % (wanted, wanted, DFP_USER_VOICE_DIR_NAME)
+                )
+            return "%s\n\n%s" % (hint, notice_summary) if notice_summary else hint
+        if notice_summary:
+            rows.append("· %s" % notice_summary)
+        real_rows = len(rows) - (1 if notice_summary else 0)
+        head = "提示音 %d 类共 %d 条" % (len(categories), real_rows) if multi else "%s 类共 %d 条" % (wanted, real_rows)
         if unknown:
             head += "，其中 %d 条暂未听写台词" % unknown
         return "%s\n%s" % (head, "\n".join(rows))
@@ -15252,14 +15092,13 @@ class DFPSettingsDialog(QDialog):
                     stats = self._dfp_library.dfp_stats()
                     categories = "、".join("%s %d" % pair for pair in stats["categories"][:8])
                     self.lbl_assets.setText(
-                        "目录：%s%s\n%s（%s）\n%s\n%s\n可选形象：%d 个\n动作类别：%s\n来源：%s"
+                        "目录：%s%s\n%s（%s）\n%s\n可选形象：%d 个\n动作类别：%s\n来源：%s"
                         % (
                             stats["root"],
                             "" if stats["manifest_exists"] else "\n（清单不存在，已自动扫描）",
                             self._dfp_library.dfp_summary(),
                             "就绪" if stats["ready"] else (stats["error"] or "未就绪"),
-                            stats.get("pack_summary") or "素材包：无",
-                            stats.get("form_summary") or "鲸鱼形态：无",
+                            stats.get("form_summary") or "状态形象：无",
                             dfp_safe_int(stats.get("characters_all"), 0),
                             categories or "—",
                             dfp_truncate_text(stats["source"], 80) or "—",
@@ -15894,7 +15733,7 @@ def dfp_set_raise_callback(callback: Optional[Callable[[], None]]) -> None:
 
 
 # ★ v1.1.14：「要弹确认框了」的提示音钩子
-#   （素材包里的 notice-approval.wav 就挂在这里；桌宠没起来时列表为空，什么也不会发生）
+#   （你自己的 `鲸宝音频\notice\voice_notice_approval_1.mp3` 就挂在这里；桌宠没起来时列表为空，什么也不会发生）
 _DFP_CONFIRM_NOTICES: List[Callable[[], None]] = []
 
 
@@ -17584,7 +17423,7 @@ class DFPAppController(QObject):
         self._dfp_build_pet_menu()
         self._dfp_build_tray()
         dfp_set_raise_callback(self.dfp_handle_raise)
-        # ★ v1.1.14：弹确认框前先叫一声（素材包里的 notice-approval）
+        # ★ v1.1.14：弹确认框前先叫一声（`鲸宝音频\notice\` 里的 approval 提示音）
         dfp_set_confirm_notice(self._dfp_play_notice_approval)
 
     def _dfp_build_shortcuts(self) -> None:
@@ -17648,7 +17487,7 @@ class DFPAppController(QObject):
 
         # —— 🐋 形象 ——
         sub_look = menu.addMenu("🐋　形象")
-        sub_look.addAction("🔮　换个形象（素材包）", self.dfp_cycle_character)
+        sub_look.addAction("🔮　换个基础形象（正面 / 背面 / 侧面）", self.dfp_cycle_character)
         sub_look.addAction("🐋　状态形象（新形象图）…", self.dfp_open_form_dialog)
         sub_look.addAction("🎨　换配色（代码绘制时生效）", self._dfp_cycle_palette)
         sub_look.addAction("🔄　水平翻转", self._dfp_toggle_flip)
@@ -18437,7 +18276,7 @@ class DFPAppController(QObject):
         elif key in ("voice_enabled", "voice_volume"):
             self._dfp_voice.dfp_set_volume(dfp_safe_float(self._dfp_settings.dfp_get("voice_volume", 0.8), 0.8))
         elif key == "asset_character":
-            # ★ v1.1.14：换形象（素材包 skins 也算形象）→ 立即换到桌宠身上
+            # ★ v1.1.14：换基础形象 → 立即换到桌宠身上
             self.dfp_apply_character()
         elif key == "look_expression_follow":
             # ★ v1.1.34：台词换表情 / 换立绘两个开关（关掉时把挂着的那一套收掉）
@@ -18562,7 +18401,7 @@ class DFPAppController(QObject):
         self._dfp_settings.dfp_set("pet_palette", key)
         self.dfp_notify("配色：%s" % DFP_PALETTES[key]["label"], "info")
 
-    # --- ★ v1.1.14：换形象（素材包里的 skins 也算形象）---
+    # --- ★ v1.1.14：换形象（★ v1.1.37 起只有 3 张基础形象）---
     def dfp_character_choices(self) -> List[Tuple[str, str]]:
         """可选的立绘清单：`(id, 显示名)`；第一项是「（默认）」。"""
         choices: List[Tuple[str, str]] = [("", "（默认）%s" % self._dfp_assets.dfp_character_label(self._dfp_default_character()))]
@@ -18656,16 +18495,16 @@ class DFPAppController(QObject):
 
     # --- 形象声音 ---
     def dfp_play_notice(self, status: str) -> Optional[str]:
-        """播一条任务状态提示音（素材包里的 `notice-*.wav`）。
+        """播一条任务状态提示音（你自己的录音：`鲸宝音频\notice\voice_notice_<状态>_<序号>.*`）。
 
-        状态口径（与素材包清单里的 6 类一一对应）：
+        状态口径（6 类）：
           completed   任务/备份/导出跑完了        ← 后台任务成功
           failed      任务失败                    ← 后台任务失败
           interrupted 被打断                      ← 退出程序、停止生成
           needs_help  需要帮忙（接口/Key 出问题） ← 聊天或接口报错
           low_balance 余额变少                    ← 余额提醒说「少了」的那一刻
           approval    需要确认                    ← 弹确认框之前
-        `voice_on_notice` 关掉就不响；没装素材包也什么都不发生。
+        `voice_on_notice` 关掉就不响；还没录这一类的提示音也什么都不发生。
         """
         name = str(status or "").strip().lower()
         if not name:
@@ -18679,13 +18518,13 @@ class DFPAppController(QObject):
             self.dfp_flash_form(form, silent=True)
         if self._dfp_voice is None:
             return None
-        played = self._dfp_voice.dfp_play("%s%s" % (DFP_ASSET_PACK_NOTICE_CATEGORY_PREFIX, name))
+        played = self._dfp_voice.dfp_play("%s%s" % (DFP_NOTICE_CATEGORY_PREFIX, name))
         if played is None:
             if self._dfp_logger is not None:
-                self._dfp_logger.dfp_debug("提示音未播放（%s）：可能未启用 / 素材包没装 / 无解码器" % name)
+                self._dfp_logger.dfp_debug("提示音未播放（%s）：可能未启用 / 还没录这一类 / 无解码器" % name)
             return None
         if self._dfp_logger is not None:
-            self._dfp_logger.dfp_info("提示音（%s）：%s" % (DFP_ASSET_PACK_NOTICE_LABELS.get(name, name), played))
+            self._dfp_logger.dfp_info("提示音（%s）：%s" % (DFP_NOTICE_LABELS.get(name, name), played))
         return played
 
     def _dfp_play_notice_approval(self) -> None:
@@ -19520,7 +19359,7 @@ class DFPAppController(QObject):
 
     def _dfp_on_controller_task_done(self, name: str, result: Any) -> None:
         self._dfp_task_busy = ""
-        # ★ v1.1.14：任务跑完响一声（素材包里的 notice-completed）
+        # ★ v1.1.14：任务跑完响一声（`鲸宝音频\notice\` 里的 completed 提示音）
         self.dfp_play_notice("completed")
         callbacks = getattr(self, "_dfp_task_callbacks", {})
         handler = callbacks.get("done") if callbacks else None
@@ -19627,7 +19466,6 @@ class DFPAppController(QObject):
                 "内容：形象 %d · 表情动画 %d · 动作片 %d · 语音 %d · 表情包 %d"
                 % (stats["characters"], stats["expressions"], stats["animations"], stats["voices"], stats["memes"]),
                 "动作类别：%s" % (categories or "—"),
-                "素材包：%s" % (stats.get("pack_summary") or "无"),
                 "状态形象：%s" % (stats.get("form_summary") or "无"),
                 "来源：%s" % (stats["source"] or "—"),
                 "状态：%s" % ("就绪" if stats["ready"] else (stats["error"] or "未就绪")),
@@ -19746,16 +19584,16 @@ class DFPAppController(QObject):
             # ★ v1.1.14：一次一个地轮着试听 6 类提示音（按钮少、都能听到）
             #   ★ 必须排在 `action.startswith("voice_")` 之前：那个分支按 `voice_<类别>`
             #     取名，会把 `voice_notice` 当成类别 `notice` 吞掉，这里永远走不到。
-            statuses = list(DFP_ASSET_PACK_NOTICE_STATUSES)
+            statuses = list(DFP_NOTICE_STATUSES)
             index = dfp_safe_int(self._dfp_notice_audition_index, 0) % len(statuses)
             status = statuses[index]
             self._dfp_notice_audition_index = (index + 1) % len(statuses)
             played = self.dfp_play_notice(status)
-            label = DFP_ASSET_PACK_NOTICE_LABELS.get(status, status)
+            label = DFP_NOTICE_LABELS.get(status, status)
             if played:
                 self.dfp_notify("提示音：%s（%s）" % (label, played), "info")
             else:
-                self.dfp_notify("提示音：%s —— 没装上素材包 / 已关提示音" % label, "warn")
+                self.dfp_notify("提示音：%s —— 还没录这一类的提示音 / 已关提示音" % label, "warn")
         elif action.startswith("voice_"):
             self._dfp_play_voice(action[6:])
         elif action == "open_env":
@@ -20045,7 +19883,7 @@ def _dfp_walk_image_roots(roots: List[Tuple[str, str]]):
 def dfp_user_voice_dirs() -> List[str]:
     """用户自己录音的目录（`鲸宝音频\`）：形象语音 `voice_<类别>_<序号>.*`。
 
-    ★ v1.1.23：用户要把「素材2 那种音色」的录音全部往这里放，好与素材包（素材4/6）的别人音色区分。
+    ★ v1.1.23：用户要把「鲸宝音频」当成语音唯一的家（★ v1.1.37：素材包已退役，不再有别人配的音色）。
       程序目录与数据目录下的同名目录都认（顺序：程序目录在前），里面不是 `voice_` 开头的文件忽略
       （所以「数字读法」那几条 `1.mp3` / `合计.mp3` / `番.mp3` 不会混进来）。
     """

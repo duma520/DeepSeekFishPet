@@ -40,6 +40,17 @@ rem        set ASSET_OPT=--include-data-files=extra.txt=extra.txt
 rem      Moving or replacing assets never needs a change here: this
 rem      script only bundles icon.ico, everything else is read from
 rem      disk at runtime.
+rem   6) The mahjong modules are loaded at RUNTIME with importlib
+rem      (from "mahjong\mahjong_api.py" next to the exe), so
+rem      --follow-imports never sees what they import. The stdlib
+rem      modules below are needed by them but are NOT imported by the
+rem      main program, so they must be force-included -- without them
+rem      the exe logs "No module named 'http.server'" and the scoring
+rem      web page silently never starts. The loose .py files stay the
+rem      single source of truth, so mahjong can still be replaced in
+rem      the dist folder without rebuilding.
+rem      Do NOT put comments inside the multi-line command below:
+rem      a "rem" line in the middle of caret continuations breaks it.
 rem ============================================================
 cd /d "%~dp0"
 
@@ -60,6 +71,10 @@ echo.
     --windows-console-mode=disable ^
     --windows-icon-from-ico=icon.ico ^
     --include-data-files=icon.ico=icon.ico ^
+    --include-module=http.server ^
+    --include-module=socketserver ^
+    --include-module=urllib.parse ^
+    --include-module=argparse ^
     %ASSET_OPT% ^
     --follow-imports ^
     --nofollow-import-to=tkinter,pytest,unittest,IPython,matplotlib,numpy,pandas,scipy,PIL ^
