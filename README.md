@@ -11,7 +11,7 @@
 | **主程序文件** | `DeepSeekFishPet.py`（单文件，约 21,049 行，UTF-8 无 BOM，CRLF） |
 | **作者** | **杜玛** |
 | **版权** | 永久 © 杜玛 |
-| **开源许可证** | MIT License |
+| **开源许可证** | AGPL-3.0 |
 | **GitHub** | https://github.com/duma520 |
 | **网站** | https://github.com/duma520 |
 | **项目地址** | https://github.com/duma520/DeepSeekFishPet |
@@ -21,7 +21,7 @@
 | **邮箱** | 不提供 |
 
 > **版权声明**：© 永久 杜玛 保留所有权利。
-> 本文档内容未经书面许可不得转载或用于商业用途。
+> 本文档内容随本仓库以 AGPL-3.0 发布，可自由转载与商用。
 > **注意**：我们不提供私人邮箱支持，所有技术支持都通过公开渠道进行，以便其他用户也能受益。
 
 ---
@@ -2826,31 +2826,9 @@ G:\Python_Code\DeepSeekFishPet\
 - 麻将图来自国标麻将算番器项目
 - 使用前请自行确认授权情况
 
-## D.3 开源许可证（MIT）
+## D.3 开源许可证（AGPL-3.0）
 
-```
-MIT License
-
-Copyright (c) 永久 杜玛
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+完整许可证条文见仓库根目录 [LICENSE](LICENSE)（GNU AGPL-3.0）。
 
 ## D.4 技术支持渠道
 
@@ -2866,7 +2844,7 @@ SOFTWARE.
 
 **© 永久 杜玛 保留所有权利**
 
-**本文档内容未经书面许可不得转载或用于商业用途**
+**本文档内容随本仓库以 AGPL-3.0 发布，可自由转载与商用**
 
 **作者**：杜玛
 **开发起始**：2026-09-18
