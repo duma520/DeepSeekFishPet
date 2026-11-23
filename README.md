@@ -158,7 +158,7 @@
 ```bat
 :: 1. 打开命令行（Win+R 输入 cmd）
 :: 2. 进入项目目录
-cd /d G:\Python_Code\DeepSeekFishPet
+cd /d 你的项目目录\DeepSeekFishPet
 
 :: 3. 装依赖（只有两个）
 pip install PySide6 requests
@@ -1218,7 +1218,7 @@ DB_PASSWORD=换成一个只有你知道的字符串
 
 ## 10.2 算番器从哪来
 
-**另一个项目**。源项目在 `G:\Python_Code\Mahjong_Calculator`。
+**另一个项目**。源项目在 `你的项目目录\Mahjong_Calculator`。
 
 **那个目录一个字节都没改**。桌宠用的是**复制**进 `mahjong\` 的四样东西：
 
@@ -2648,7 +2648,7 @@ Windows 10 或 11。打包后不需要 Python 环境。
 不会。正在念就不打断。
 
 **Q98：算番器能改吗？**
-能改源项目 `G:\Python_Code\Mahjong_Calculator`，然后重拷。
+能改源项目 `你的项目目录\Mahjong_Calculator`，然后重拷。
 
 **Q99：麻将图在哪？**
 `mahjong\麻将图\`。
@@ -2661,7 +2661,7 @@ Windows 10 或 11。打包后不需要 Python 环境。
 # 附录 A　目录结构全图
 
 ```
-G:\Python_Code\DeepSeekFishPet\
+你的项目目录\DeepSeekFishPet\
 ├─ DeepSeekFishPet.py            主程序（★ 唯一编译源，21049 行）
 ├─ icon.ico                       程序图标（7 种尺寸）
 ├─ .env                           ★ API Key 与数据库口令
