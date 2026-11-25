@@ -13,7 +13,8 @@ rem      from icon.ico next to the exe, so icon.ico MUST also be
 rem      shipped as a data file (see --include-data-files below).
 rem      Missing it causes "exe has icon, window has none".
 rem   3) The whole build_output\DeepSeekFishPet.dist folder is what
-rem      you hand out. Copy .env next to the exe as well.
+rem      you hand out. NEVER put .env into it -- it holds the API
+rem      key. Ship a .env.example instead and let the user fill it.
 rem   4) The asset folders are NOT bundled: they are huge and their
 rem      names are Chinese, which this file must not contain. See
 rem      chapter 8 of the project doc for the exact names. Copy ALL
@@ -61,7 +62,7 @@ echo Building DeepSeekFishPet.py ...
 echo.
 echo NOTE: the asset folders are NOT bundled -- their names are Chinese
 echo   and this file must stay ASCII-only. After building, copy them
-echo   plus .env from the project root into the dist folder next to
+echo   (but NOT .env) from the project root into the dist folder next to
 echo   the exe. The list is in the comment block at the top of this
 echo   file: asset root / character images / audio / mahjong + numbers.
 echo.
@@ -89,7 +90,7 @@ echo.
 if "%RC%"=="0" (
     echo [OK] Build finished. Dist folder:
     echo      %~dp0build_output\DeepSeekFishPet.dist
-    echo      Do not forget to copy .env next to the exe, and to copy
+    echo      Do NOT copy .env into the dist folder (API key!), and copy
     echo      the asset folders into the dist folder as well: asset
     echo      root / character images / audio / mahjong + numbers.
 ) else (
